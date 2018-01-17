@@ -29,6 +29,8 @@ image_config: &image_config
 
   BROWSERS: true
 
+  RABBITMQ: true
+
 version: 2
 jobs:
   build:
