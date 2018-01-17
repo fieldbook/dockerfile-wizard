@@ -33,6 +33,14 @@ if [ ! -e $PYTHON_VERSION_NUM ] ; then
     make install"
 fi
 
+if [ $RABBITMQ = "true" ] ; then
+    echo "RUN echo \"deb https://dl.bintray.com/rabbitmq/debian {distribution} main\" | sudo tee /etc/apt/sources.list.d/bintray.rabbitmq.list && \
+    echo "deb https://dl.bintray.com/rabbitmq/debian trusty main" | sudo tee /etc/apt/sources.list.d/bintray.rabbitmq.list && \
+    wget -O- https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc | sudo apt-key add - && \
+    sudo apt-get update && \
+    sudo apt-install rabbitmq-server update"
+fi
+
 # if [ ! -e $PHP_VERSION_NUM ] ; then
 #     wget "http://php.net/distributions/php-${PHP_VERSION_NUM}.tar.xz"
 # fi
